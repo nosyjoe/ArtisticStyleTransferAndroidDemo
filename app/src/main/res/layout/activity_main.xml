@@ -1,31 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center_horizontal"
     tools:context="de.philippengel.artisticstyletransferdemo.MainActivity">
 
-
-    <ImageView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="300dp"/>
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Take Photo"
-        />
+        <de.philippengel.artisticstyletransferdemo.SquareFrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Transfer"
-        />
+            <ImageView
+                android:id="@+id/image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop" />
 
-</LinearLayout>
+        </de.philippengel.artisticstyletransferdemo.SquareFrameLayout>
+
+        <Button
+            android:id="@+id/takePhotoButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Take Photo" />
+
+        <Button
+            android:id="@+id/stylizeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Stylize" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/container_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#55000000"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="false"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/spinner"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:indeterminate="true" />
+
+    </FrameLayout>
+
+</FrameLayout>
